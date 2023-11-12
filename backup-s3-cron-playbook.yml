@@ -1,6 +1,8 @@
 ---
 - name: Configure Cron Job
   hosts: dbserver
+    vars:
+      ansible_password: '{{ lookup("env", "ANSIBLE_PASSWORD") }}'
   become: yes
   become_user: ec2-user
   tasks:
