@@ -40,7 +40,9 @@ vi main.yaml:
 
 ---
  - name: this is my first playbook
-   hosts: localhost
+   hosts: dbserver
+   become: yes
+   become_user: ec2-user
    tasks:
      - name: Take Mysql backup
        shell: mysqldump -u root --password="yourpassword"  kritika  tblEmployee1 > /tmp/dump3.sql
