@@ -4,6 +4,9 @@
    become: yes
    become_user: ec2-user
    tasks:
+     - name: include vault
+       include_vars:
+        file: db_pass.yml
      - name: Take Mysql backup
        shell: mysqldump -u root --password="{{ db_pass }}"  kritika  tblEmployee1 > /tmp/dump3.sql
      - name: Push Mysql backup to s3 bucket
