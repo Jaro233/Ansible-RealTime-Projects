@@ -11,4 +11,4 @@
       cron:
         name: "My Cron Job"
         minute: "*/1"
-        job: " sh backup-s3.sh"
+        job: " sh /home/ec2-user/Ansible-RealTime-Projects/backup-s3.sh"
