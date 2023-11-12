@@ -3,7 +3,7 @@
   hosts: dbserver
   vars:
     ansible_user: ec2-user
-    ansible_password: '{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+    ansible_password: {{ lookup("env", "ANSIBLE_PASSWORD") }}
   become: yes
   become_user: ec2-user
   tasks:
