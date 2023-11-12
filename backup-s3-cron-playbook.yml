@@ -1,0 +1,11 @@
+---
+- name: Configure Cron Job
+  hosts: dbserver
+  become: yes
+  become_user: ec2-user
+  tasks:
+    - name: Add Cron Job
+      cron:
+        name: "My Cron Job"
+        minute: "2"
+        job: "backup-s3.sh"
