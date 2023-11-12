@@ -10,5 +10,5 @@
     - name: Add Cron Job
       cron:
         name: "My Cron Job"
-        minute: "1"
-        job: "backup-s3.sh"
+        minute: "*/1"
+        job: " sh backup-s3.sh"
