@@ -6,6 +6,8 @@
     ansible_password: '{{ lookup("env", "ANSIBLE_PASSWORD") }}'
   become: yes
   become_user: ec2-user
+  vars_files:
+    - db_pass.yml
   tasks:
     - name: Copy file with owner and permissions
       copy:
@@ -15,7 +17,7 @@
     - cron:
         name: db_pass
         env: yes
-        value: '{{ lookup("env", "db_pass") }}'
+        value: {{ db_pass }}
     - name: Add Cron Job
       cron:
         name: "My Cron Job"
