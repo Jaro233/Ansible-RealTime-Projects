@@ -12,6 +12,10 @@
         src: /home/ec2-user/Ansible-RealTime-Projects/backup-s3.sh
         dest: /home/ec2-user/backup-s3.sh
         mode: '0755'
+    - cron:
+        name: db_pass
+        env: yes
+        value: '{{ lookup("env", "db_pass") }}'
     - name: Add Cron Job
       cron:
         name: "My Cron Job"
