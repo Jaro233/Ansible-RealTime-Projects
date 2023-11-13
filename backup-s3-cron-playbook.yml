@@ -17,7 +17,7 @@
     - cron:
         name: db_pass
         env: yes
-        value: {{ db_pass }}
+        value: "{{ db_pass }}"
     - name: Add Cron Job
       cron:
         name: "My Cron Job"
