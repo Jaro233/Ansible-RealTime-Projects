@@ -7,8 +7,13 @@
   become: yes
   become_user: ec2-user
   tasks:
+    - name: Copy file with owner and permissions
+      copy:
+        src: /home/ec2-user/Ansible-RealTime-Projects/backup-s3.sh
+        dest: /home/ec2-user/backup-s3.sh
+        mode: '0755'
     - name: Add Cron Job
       cron:
         name: "My Cron Job"
         minute: "*/1"
-        job: " sh /home/ec2-user/Ansible-RealTime-Projects/backup-s3.sh"
+        job: "sh /home/ec2-user/backup-s3.sh"
